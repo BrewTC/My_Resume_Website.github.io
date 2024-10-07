@@ -1,0 +1,221 @@
+* {
+  margin: 0; // 將所有元素的外距 (margin) 設定為0，消除元素之間的預設間距。
+  padding: 0; // 將所有元素的內距 (padding) 設定為0，消除元素內部內容與邊界之間的預設間距。
+  box-sizing: border-box; // 設定所有元素的盒模型 (box model) 使用 border-box，這意味著元素的寬度和高度會包含內距 (padding) 和邊框 (border)，而不會再額外增加元素的總大小。
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal; // 所有的字體都設定為正常(不會有粗體)
+}
+
+body {
+  overflow: visible; // 設定整個頁面無限捲動，避免頁面內容超出可視區域。
+  nav {
+    background-color: white;
+
+    // 固定nav bar在
+    position: sticky; // 設定導航列為固定位置
+    top: 0; // 設定導航列置於頂端
+    z-index: 5; // 設定導航列的堆疊順序
+
+    ul {
+      display: flex; // 使用 flex 排列子項目
+      li {
+        list-style-type: none; // 隱藏子項目列表符號
+        margin: 1rem; // 設定子項目間距
+        a {
+          color: black; // 設定超連結文字顏色
+          text-decoration: none; // 取消超連結底線
+          transition: all 0.1s ease; // 設定超連結的轉場效果
+          &:hover {
+            // 設定超連結滑鼠移至時的效果
+            color: rgb(255, 154, 61); // 設定超連結滑鼠移至時的顏色
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    section.main-area {
+      min-height: 70vh; // 設定主內容區塊的最小高度
+      background-color: white;
+      display: flex; // 使用 flex 排列主內容區塊的子項目(會變成縱置的)
+      flex-wrap: wrap; // 設定主內容區塊的子項目(換行)
+
+      justify-content: center; // 設定主內容區塊的子項目(水平置中)
+
+      align-items: center; // 設定主內容區塊的子項目(垂直置中)
+
+      div.info {
+        // border: 2px solid black; // 設定資訊區塊的邊框
+        flex-basis: 450px; // 設定資訊區塊的寬度
+        padding: 1rem;
+        h1 {
+          font-size: 3.5rem; // 設定標題的字體大小
+        }
+        h2 {
+          font-size: 1rem; // 設定副標題的字體大小
+        }
+        a {
+          color: white; // 設定超連結文字顏色
+          background-color: rgb(255, 154, 61); // 設定超連結背景顏色
+          padding: 0.25rem 0.5rem; // 設定超連結的邊框
+          font-size: 1.2rem; // 設定超連結的字體大小
+          border-radius: 20px; // 設定超連結的邊框半徑
+
+          display: inline-block; // 設定超連結為行內元素
+          margin-top: 2rem; // 設定超連結與下方元素的間距
+          text-decoration: none; // 取消超連結底線
+          transition: all 0.2s ease; // 設定超連結的轉場效果
+          &:hover {
+            // 設定超連結滑鼠移至時的效果
+            transform: scale(1.2); // 設定超連結的放大效果
+          }
+        }
+
+        div.img-area {
+          // border: 2px solid red; // 設定圖片區塊的邊框
+
+          flex-basis: 450px; // 設定資訊區塊的寬度
+
+          img {
+            width: 100%; // 設定圖片寬度為100%，以滿足父元素的寬度
+          }
+        }
+      }
+    }
+
+    section.about-me {
+      background-color: rgb(255, 154, 61);
+      padding: 5rem 1rem;
+      display: flex; // 使用 flex 排列子項目
+      justify-content: center; // 設定子項目(水平置中)
+
+      section.description {
+        width: 50%;
+        text-align: center;
+        h2 {
+          font-size: 2rem; // 設定標題的字體大小
+        }
+        .progress-bar-area {
+          p {
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+
+    section.resume {
+      overflow-x: auto; // 設定瀏覽器可以滿足顯示全部內容;
+      display: flex; // 使用 flex 排列子項目
+      flex-wrap: wrap; // 設定子項目(換行)
+      padding: 2rem;
+
+      section.table {
+        flex: 5 0 500px;
+        // border: 2px solid red; // 設定表格的邊框
+        padding: 2rem;
+        table {
+          --bs-table-bg: none; // 設定表格的背景顏色為透明
+          border-collapse: collapse; // 設定表格的邊框不重疊
+          tr {
+            border-bottom: 2px solid gray; // 設定表格的每一行的邊框
+            transition: all 0.2s ease; // 設定表格的轉場效果
+            &:hover {
+              // 設定表格的滑鼠移至時的效果
+              background-color: rgb(
+                255,
+                190,
+                130
+              ); // 設定表格的滑鼠移至時的背景顏色
+            }
+          }
+          td {
+            padding: 1rem;
+          }
+        }
+      }
+    }
+
+    section.picture {
+      flex: 1 1 500px;
+      // border: 2px solid black; // 設定圖片區塊的邊框
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative; // 設定圖片區塊為相對定位，使得圖片可以置中
+      // align-items: stretch;
+      img {
+        width: 80%;
+      }
+
+      div.greenRect {
+        width: 30vw;
+        height: 90vh;
+        border: 10px solid rgb(255, 190, 130);
+        position: absolute; // 設定圖片區塊為相對定位，使得圖片可以置中
+        top: 30px;
+        left: 80px;
+        z-index: -1;
+      }
+
+      div.greenRect2 {
+        width: 50vw;
+        height: 40vh;
+        border: 10px solid rgb(255, 190, 130);
+        position: absolute;
+        top: 300px;
+        left: -300px;
+        z-index: -1;
+      }
+
+      div.greenRect3 {
+        width: 50vw;
+        height: 40vh;
+        border: 10px solid rgb(255, 190, 130);
+        position: absolute;
+        top: 0px;
+        left: -100px;
+        z-index: -1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    main {
+      section.about-me {
+        section.description {
+          width: 80%;
+        }
+      }
+      section.resume {
+        section.picture {
+          div.greenRect,
+          div.greenRect2,
+          div.greenRect3 {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    nav {
+      position: static; // 設定導航列為靜態位置
+      ul {
+        flex-direction: column; // 設定導航列的子項目排列方式為垂直
+      }
+    }
+  }
+}

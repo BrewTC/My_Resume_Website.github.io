@@ -1,0 +1,19 @@
+# 禁止爬整個網站
+User-agent: *
+Disallow: /
+
+# 禁止爬網站的圖片，其他都可以
+User-agent: *
+Disallow: /images/
+
+# 禁止google搜尋引擎搜尋圖片，但是其他都可以搜尋
+User-agent: Googlebot-news
+Disallow: /images/
+Allow: /
+
+# 禁止google搜尋引擎搜尋excel檔案
+User-agent: Googlebot
+Disallow: /*.xls$
+
+# 其他細節可以到goo高search console上設定
+# https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt?hl=zh-tw
